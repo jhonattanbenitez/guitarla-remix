@@ -1,0 +1,36 @@
+:root {
+    --primary: #e99401;
+    --black: #262626;
+    --white: #FFF;
+    --main-font: 'Outfit', sans-serif;
+  }
+  html {
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body {
+    font-size: 32px;
+    font-family: var(--main-font);
+    line-height: 1.5;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  [class*="container"], 
+  main {
+    width: 1920px;
+    margin: 3rem auto;
+  }
+  [class*="heading"] {
+    font-size: 64px;
+    text-align: center;
+    font-weight: 900;
+    color: var(--primary);
+    margin: 5rem 0;
+  }
