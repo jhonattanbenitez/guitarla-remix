@@ -1,0 +1,14 @@
+.c-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 5rem;
+
+    &__paragraph {
+        font-size: 16px;
+    }
+
+    @media (min-width: 1240px){
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+}
