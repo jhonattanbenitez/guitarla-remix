@@ -172,7 +172,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 3rem;
+  max-width: 70rem;
+  margin: 0 auto;
 }
 
 .c-guitar__heading {
@@ -190,6 +191,10 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 5;
   overflow: hidden;
+  font-size: 1rem;
+}
+
+.c-guitar__description--complete {
   font-size: 1rem;
 }
 
@@ -217,5 +222,18 @@
 .c-guitar__link:hover, .c-guitar__link:focus {
   background-color: var(--primary);
   color: var(--black);
+}
+
+.c-error {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 5rem;
+}
+
+.c-error__link {
+  display: block;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 1.8rem;
 }
 /*# sourceMappingURL=module.css.map */
