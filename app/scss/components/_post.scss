@@ -1,0 +1,46 @@
+.c-post {
+    max-width: 800px;
+    margin: 0 auto;
+    &__content {
+        padding: 1.5rem;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 0;
+    }
+    &__img {
+        margin-top: 2rem;
+    }
+    &__summary {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 6;
+        overflow: hidden;
+        font-size: 16px;
+    }
+    &__content {
+        font-size: 16px;
+        white-space: pre-wrap;
+    }
+    &__date {
+        font-size: 16px;
+        color: var(--primary);
+    }
+    &__link {
+        margin-top: 2rem;
+        display: block;
+        color: var(--white);
+        background-color: var(--black);
+        padding: 0.5rem;
+        text-decoration: none;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1rem;
+        transition: all 0.3s;
+        &:hover, &:focus {
+            background-color: var(--primary);
+            color: var(--black);
+        }
+    }
+}
