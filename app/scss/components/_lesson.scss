@@ -1,0 +1,21 @@
+.c-lesson {
+    padding: 3rem 0;
+    margin-top: 10rem;
+    background-position: center center;
+
+    @media (min-width: 1240px) {
+        &__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        &__content {
+            grid-column: 2/3;
+        }
+    }
+    &__text {
+        text-align: justify;
+        color: var(--white);
+        font-size: 20px;
+        line-height: 2;
+    }
+}
