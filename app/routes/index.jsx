@@ -35,7 +35,7 @@ function Index() {
           </div>
         )}
       </main>
-      <Lesson lesson={lesson.attributes}/>
+      <Lesson lesson={lesson?.attributes}/>
       <div className="o-container">
         <h2 className="c-heading">Blog</h2>
         <div className="c-blog">
