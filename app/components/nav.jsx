@@ -25,9 +25,9 @@ function Nav() {
         About Us
       </Link>
       <Link
-        to="/store"
+        to="/guitars"
         className={
-          location.pathname === '/store'
+          location.pathname === '/guitars'
             ? 'c-nav__link c-nav__link--active'
             : 'c-nav__link'
         }
