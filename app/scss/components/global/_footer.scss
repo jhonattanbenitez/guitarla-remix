@@ -17,6 +17,9 @@
         @media (min-width: 1230px) {
             align-items: flex-start;
         }
+        a:last-of-type {
+            display: none;
+        }
     }
     &__copyright {
      text-align: center;

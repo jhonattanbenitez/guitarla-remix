@@ -40,6 +40,9 @@
   display: flex;
   gap: 1rem;
   margin-top: 5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (min-width: 1230px) {
@@ -103,6 +106,10 @@
         -ms-flex-align: start;
             align-items: flex-start;
   }
+}
+
+.c-footer .c-nav a:last-of-type {
+  display: none;
 }
 
 .c-footer__copyright {

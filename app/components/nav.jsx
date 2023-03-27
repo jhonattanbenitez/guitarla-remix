@@ -1,4 +1,5 @@
 import { Link, useLocation } from '@remix-run/react'; 
+import cart from '../../public/img/cart.png'
 
 function Nav() {
   const location = useLocation()
@@ -43,6 +44,10 @@ function Nav() {
         }
       >
         Blog
+      </Link><Link
+        to="/cart"
+      >
+        <img src={cart} alt="shoping cart" className='c-cart'/>
       </Link>
     </nav>
   );
