@@ -1,5 +1,6 @@
 import { useLoaderData } from '@remix-run/react'
 import { getGuitar } from '~/models/guitars.server'
+import { useState } from 'react'
 
 export async function loader({params}) {
   const {guitarUrl} = params
@@ -26,8 +27,25 @@ export function meta({data}) {
 }
 
 function Guitar() {
+  const [quantity, setQuantity] = useState(0)
   const guitar = useLoaderData()
   const {name, description, image, price} = guitar.data[0].attributes
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(quantity < 1) {
+       alert('Please select a quantity')
+       return
+    }
+    const selectedGuitar = {
+      id: guitar.data[0].id,
+      img: image.data.attributes.url,
+      name,
+      price,
+      quantity
+    }
+    console.log(selectedGuitar)
+  }
   return (
     <main className="o-container">
      <div className="c-guitar">
@@ -36,6 +54,19 @@ function Guitar() {
         <h3 className="c-guitar__heading">{name}</h3>
         <p className="c-guitar__description--complete">{description}</p>
         <p className="c-guitar__price">{price}</p>
+        <form className='c-form' onSubmit={handleSubmit}>
+            <label htmlFor="Quantity" className='c-form__label'>Quantity</label>
+            <select name="Quantity" id="Quantity" className='c-form__select'
+            onChange={e => setQuantity(parseInt(e.target.value))}>
+              <option value="0">--Select--</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+            <input type="submit" value="Add to Cart" className='c-form__btn'/>
+        </form>
       </div>
      </div>
     </main>
