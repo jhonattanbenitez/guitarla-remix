@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Meta,
   Links,
@@ -45,9 +46,29 @@ export function links() {
   ];
 }
 export default function App() {
+  const [cart, setCart] = useState([])
+
+  const addToCart = (guitar) => {
+    if (cart.some(guitarState => guitarState.id === guitar.id )) {
+      // identify a duplicated element
+      const updatedCart = cart.map(guitarState => {
+        if (guitarState.id === guitar.id) {
+          //set the new quantity
+          guitarState.quantity = guitar.quantity
+        }
+        return guitarState
+      })
+      setCart(updatedCart)
+    } else {
+      setCart([...cart, guitar])
+    }
+  }
   return (
     <Document>
-      <Outlet />
+      <Outlet 
+      context={{
+        addToCart
+      }}/>
     </Document>
   );
 }

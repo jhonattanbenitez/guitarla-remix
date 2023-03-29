@@ -1,8 +1,10 @@
-import { Outlet } from "@remix-run/react"
+import { Outlet, useOutletContext } from "@remix-run/react"
 function Store() {
   return (
     <div className="o-container">
-        <Outlet />
+        <Outlet 
+          context={useOutletContext()}
+        />
     </div>
   )
 }
