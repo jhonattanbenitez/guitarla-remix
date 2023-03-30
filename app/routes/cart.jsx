@@ -1,3 +1,4 @@
+import { useOutletContext } from "@remix-run/react";
 export function meta () {
     return {
         title: 'Guitar LA - Shopping Cart',
@@ -6,6 +7,8 @@ export function meta () {
 }
 
 function Cart() {
+  const cart = useOutletContext()
+  console.log(cart)
   return (
     <main className="o-container">
       <h1 className="c-heading">Shopping Cart</h1>
