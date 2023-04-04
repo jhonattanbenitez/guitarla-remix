@@ -46,30 +46,41 @@ export function links() {
   ];
 }
 export default function App() {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
   const addToCart = (guitar) => {
-    if (cart.some(guitarState => guitarState.id === guitar.id )) {
+    if (cart.some((guitarState) => guitarState.id === guitar.id)) {
       // identify a duplicated element
-      const updatedCart = cart.map(guitarState => {
+      const updatedCart = cart.map((guitarState) => {
         if (guitarState.id === guitar.id) {
           //set the new quantity
-          guitarState.quantity = guitar.quantity
+          guitarState.quantity = guitar.quantity;
         }
-        return guitarState
-      })
-      setCart(updatedCart)
+        return guitarState;
+      });
+      setCart(updatedCart);
     } else {
-      setCart([...cart, guitar])
+      setCart([...cart, guitar]);
     }
-  }
+  };
+  const updateQuantity = (guitar) => {
+    const updatedCart = cart.map((guitarState) => {
+      if (guitarState.id === guitar.id) {
+        guitarState.quantity = guitar.quantity;
+      }
+      return guitarState
+    });
+    setCart(updatedCart)
+  };
   return (
     <Document>
-      <Outlet 
-      context={{
-        addToCart,
-        cart
-      }}/>
+      <Outlet
+        context={{
+          addToCart,
+          cart,
+          updateQuantity,
+        }}
+      />
     </Document>
   );
 }
@@ -96,12 +107,14 @@ export function CatchBoundary() {
   const error = useCatch();
   return (
     <Document>
-        <div className="o-container">
+      <div className="o-container">
         <p className="c-error">
-        {error.status} {error.statusText}
-      </p>
-      <Link to="/" className='c-error c-error__link'>You can go back to the main page</Link>
-        </div>
+          {error.status} {error.statusText}
+        </p>
+        <Link to="/" className="c-error c-error__link">
+          You can go back to the main page
+        </Link>
+      </div>
     </Document>
   );
 }
@@ -113,7 +126,9 @@ export function ErrorBoundary({ error }) {
         <p className="c-error">
           {error.status} {error.statusText}
         </p>
-        <Link to="/" className='c-error c-error__link'>You can go back to the main page</Link>
+        <Link to="/" className="c-error c-error__link">
+          You can go back to the main page
+        </Link>
       </div>
     </Document>
   );
