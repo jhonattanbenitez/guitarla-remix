@@ -50,6 +50,8 @@ function Cart() {
                       <span>{product.price * product.quantity}</span>
                     </p>
                   </div>
+                  <button
+                  type='button' className='c-cart__btn'>x</button>
                 </div>
               ))}
         </div>
