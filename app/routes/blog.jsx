@@ -13,7 +13,6 @@ export function meta() {
 }
 function Blog() {
   const posts = useLoaderData()
-  console.log(posts)
   return (
     <main className="o-container">
       <h2 className="c-heading">Blog</h2>

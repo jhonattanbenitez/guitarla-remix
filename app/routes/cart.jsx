@@ -1,5 +1,6 @@
 import { useOutletContext } from '@remix-run/react';
 import { useEffect, useState } from 'react';
+import { ClientOnly } from 'remix-utils';
 export function meta() {
   return {
     title: 'Guitar LA - Shopping Cart',
@@ -9,24 +10,25 @@ export function meta() {
 
 function Cart() {
   const [total, setTotal] = useState(0)
-  const { cart, updateQuantity } = useOutletContext();
+  const { cart, updateQuantity, deleteGuitar } = useOutletContext();
 
   useEffect(() => {
     const calcTotal = cart.reduce((total, product) => total + (product.quantity * product.price), 0)
     setTotal(calcTotal)
   }, [cart])
   return (
-    <main className="o-container">
+    <ClientOnly fallback={'Loading...'}>
+      {() =>(
+      <main className="o-container">
       <h1 className="c-heading">Shopping Cart</h1>
       <div className="c-cart__content">
         <div className="c-cart__articles">
           <h2>Articles</h2>
-          {cart.length === 0
+          {cart?.length === 0
             ? 'Empty Cart'
             : cart.map((product) => (
                 <div key={product.id} className="c-cart__product">
                   <div>
-                    {console.log(product)}
                     <img src={product.img} alt={`Image of ${product.name}`} />
                   </div>
                   <div>
@@ -51,7 +53,7 @@ function Cart() {
                     </p>
                   </div>
                   <button
-                  type='button' className='c-cart__btn'>x</button>
+                  type='button' className='c-cart__btn' onClick={() => deleteGuitar(product.id)}>x</button>
                 </div>
               ))}
         </div>
@@ -61,6 +63,8 @@ function Cart() {
         </aside>
       </div>
     </main>
+    )}
+    </ClientOnly>
   );
 }
 
