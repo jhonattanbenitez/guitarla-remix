@@ -443,6 +443,7 @@ img {
 }
 
 .c-cart__product {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 3fr;
@@ -488,6 +489,17 @@ img {
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.5rem;
+}
+
+.c-cart__btn {
+  all: unset;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.c-cart__btn:hover {
+  cursor: pointer;
 }
 
 .c-form {
