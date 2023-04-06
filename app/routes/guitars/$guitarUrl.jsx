@@ -1,4 +1,4 @@
-import { useLoaderData, useOutletContext } from '@remix-run/react'
+import { useLoaderData, useOutletContext, Link } from '@remix-run/react'
 import { getGuitar } from '~/models/guitars.server'
 import { useState } from 'react'
 
@@ -68,6 +68,7 @@ function Guitar() {
               <option value="5">5</option>
             </select>
             <input type="submit" value="Add to Cart" className='c-form__btn'/>
+            <Link className="c-guitar__link"  to={`/cart`}>go to cart</Link>
         </form>
       </div>
      </div>

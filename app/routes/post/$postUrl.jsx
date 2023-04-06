@@ -16,7 +16,6 @@ export async function loader({params}) {
 
 function Post() {
  const post = useLoaderData()
- console.log(post)
  const {content, image, title, publishedAt} = post.data[0].attributes
   return (
     <article className="o-container">
